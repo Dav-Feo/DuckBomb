@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <title>DuckBomb</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- IMPORTANTE: style.css deve stare nella stessa cartella di index.html -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <main class="screen">
+
+    <!-- SCHERMATA SETUP -->
+    <section id="setupPanel" class="card setup-card">
+      <img class="logo" src="logo.png" alt="Logo club" onerror="this.style.display='none'">
+
+      <p class="eyebrow">Softair Objective System</p>
+      <h1>DuckBomb</h1>
+
+      <div class="setup-box">
+        <h2>Setup partita</h2>
+
+        <p class="setup-description">
+          Imposta il tempo massimo della missione e avvia l'obiettivo.
+        </p>
+
+        <div class="input-area">
+          <label for="gameMinutesInput">Tempo massimo partita</label>
+
+          <div class="minutes-row">
+            <input
+              id="gameMinutesInput"
+              class="minutes-input"
+              type="number"
+              min="1"
+              max="180"
+              value="20"
+            >
+            <span class="minutes-label">minuti</span>
+          </div>
+        </div>
+
+        <button id="startButton" class="start-button">LUCE VERDE!</button>
+
+        <div id="setupMessage" class="setup-message"></div>
+      </div>
+    </section>
+
+    <!-- SCHERMATA GIOCO -->
+    <section id="gamePanel" class="card hidden">
+      <img class="logo" src="logo.png" alt="Logo club" onerror="this.style.display='none'">
+
+      <p class="eyebrow">Objective Armed</p>
+      <h1>DuckBomb</h1>
+
+      <div id="statusLight" class="status-light active"></div>
+
+      <div class="mission-timer-box">
+        <span class="timer-label">Tempo missione</span>
+        <span id="gameTime" class="mission-timer">20:00</span>
+      </div>
+
+      <div class="timer-box">
+        <span class="timer-label">Codice valido per</span>
+        <span id="codeSeconds" class="timer">45</span>
+        <span class="timer-label">secondi</span>
+      </div>
+
+      <div class="input-area">
+        <label for="codeInput">Inserisci codice di disinnesco</label>
+        <input
+          id="codeInput"
+          maxlength="6"
+          autocomplete="off"
+          placeholder="ABC123"
+        >
+      </div>
+
+      <button id="defuseButton">DISINNESCA</button>
+
+      <div id="message" class="message"></div>
+
+      <button id="pauseButton" class="pause-button">GIOCO IN PAUSA</button>
+      <button id="resetButton" class="reset-button">TORNA AL SETUP</button>
+    </section>
+  </main>
+
+  <!-- POPUP RISULTATO -->
+  <div id="resultOverlay" class="result-overlay">
+    <div id="resultPopup" class="result-popup">
+      <div id="resultTitle" class="result-title">RISULTATO</div>
+      <div id="resultSubtitle" class="result-subtitle">Partita terminata</div>
+      <button id="popupResetButton" class="popup-reset-button">NUOVA PARTITA</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
